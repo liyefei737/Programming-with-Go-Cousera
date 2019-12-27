@@ -55,7 +55,7 @@ func main() {
 func BubbleSort(slice []int) {
 
 	//swap s[j] with s[j+1]
-	swap := func(s []int, j int) { tmp := s[j+1]; s[j+1] = s[j]; s[j] = tmp }
+	swap := func(s []int, j int) { s[j+1], s[j] = s[j], s[j+1] }
 
 	for i := 0; i < len(slice); i++ {
 		for j := 0; j < len(slice)-i-1; j++ {
