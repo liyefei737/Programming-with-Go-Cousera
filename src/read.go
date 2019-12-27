@@ -1,55 +1,55 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-  "os"
-  "bufio"
-  "strings"
+	"os"
+	"strings"
 )
 
 func main() {
 
-  var fileName string
+	var fileName string
 
-  type Name struct {
-    fname string
-    lname string
-  }
+	type Name struct {
+		fname string
+		lname string
+	}
 
-  var names []Name
+	var names []Name
 
-  stdinScanner := bufio.NewScanner(os.Stdin)
+	stdinScanner := bufio.NewScanner(os.Stdin)
 
-  fmt.Println("Enter the path(name) of the file you want to read")
-  stdinScanner.Scan()
-  fileName = stdinScanner.Text()
+	fmt.Println("Enter the path(name) of the file you want to read")
+	stdinScanner.Scan()
+	fileName = stdinScanner.Text()
 
-  fd, err := os.Open(fileName)
+	fd, err := os.Open(fileName)
 
-  if err != nil {
-    fmt.Println(err)
-    return
-  }
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
-  fileScanner := bufio.NewScanner(fd)
+	fileScanner := bufio.NewScanner(fd)
 
-  for fileScanner.Scan() {
-    line := fileScanner.Text()  // get a line from the file
-    words := strings.Split(line, " ")
-    n := Name{fname: words[0], lname: words[1]}
-    names = append(names, n)
-  }
+	for fileScanner.Scan() {
+		line := fileScanner.Text() // get a line from the file
+		words := strings.Split(line, " ")
+		n := Name{fname: words[0], lname: words[1]}
+		names = append(names, n)
+	}
 
-  // if error happens during Scan, fileScanner.Err() will return non-nil value
-  err = fileScanner.Err()
+	// if error happens during Scan, fileScanner.Err() will return non-nil value
+	err = fileScanner.Err()
 
-  if err != nil {
-    fmt.Println("error reading the file")
-    return
-  }
+	if err != nil {
+		fmt.Println("error reading the file")
+		return
+	}
 
-  fmt.Printf("%v\n", names)
+	fmt.Printf("%v\n", names)
 
-  fd.Close()
+	fd.Close()
 
 }
