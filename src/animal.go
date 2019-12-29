@@ -38,10 +38,10 @@ func main() {
 
 	for true {
 		fmt.Print("> ")
-    stdinScanner.Scan()
+		stdinScanner.Scan()
 		line := stdinScanner.Text()
 
-    if line == "" {
+		if line == "" {
 			fmt.Println("exitting...")
 			break
 		}
