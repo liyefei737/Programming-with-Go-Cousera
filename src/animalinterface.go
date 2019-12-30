@@ -95,7 +95,7 @@ func main() {
 				fmt.Println("unrecognizable animal type")
 				continue
 			}
-      fmt.Println("Created it!")
+			fmt.Println("Created it!")
 
 		case "query":
 			_, isExisting := animalGroup[animalName]
