@@ -60,11 +60,11 @@ func main() {
 		}
 
 		switch words[1] {
-		case "Eat":
+		case "eat":
 			selectetAnimal.Eat()
-		case "Move":
+		case "move":
 			selectetAnimal.Move()
-		case "Speak":
+		case "speak":
 			selectetAnimal.Speak()
 		default:
 			fmt.Println("unrecognizable animal action")
